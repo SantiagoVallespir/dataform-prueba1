@@ -1,4 +1,4 @@
 defaultProject: transfermarkt-data-project-1
-defaultDataset: dataform
-defaultAssertionDataset: dataform_assertions
+defaultDataset: prueba_dataform_1
+defaultAssertionDataset: prueba_dataform_1
 dataformCoreVersion: 3.0.26
