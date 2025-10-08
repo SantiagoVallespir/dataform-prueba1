@@ -1,0 +1,5 @@
+config {
+  type: "operations"
+}
+
+TRUNCATE TABLE `prueba_dataform_1.last_year_updated`;
