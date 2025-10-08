@@ -1,0 +1,22 @@
+config {
+  type: "operations"
+}
+
+config {
+  dependencies: ["write_last_year_updated"]
+}
+
+INSERT INTO `prueba_dataform_1.staging_indicators`
+(
+    country_code,
+    indicator_code,
+    value,
+    year
+)
+SELECT
+   country_code,
+   indicator_code,
+   ROUND(value,2),
+   PARSE_DATE('%Y', CAST(year AS STRING))  -- convierte año INT64 a DATE
+FROM ${ref("indicators_data")} AS S
+WHERE year > (SELECT MAX(last_year) FROM `prueba_dataform_1.last_year_updated`)

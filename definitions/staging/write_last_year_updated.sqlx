@@ -1,0 +1,10 @@
+config {
+  type: "operations"
+}
+
+config {
+  dependencies: ["truncate_last_year_updated"]
+}
+
+INSERT INTO `prueba_dataform_1.last_year_updated` (last_year)
+SELECT CAST(EXTRACT(YEAR FROM MAX(YEAR)) as INT64) FROM `prueba_dataform_1.indicators_v2`;

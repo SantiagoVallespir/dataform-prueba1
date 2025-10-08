@@ -1,0 +1,17 @@
+config {
+  type: "operations"
+}
+
+config {
+  dependencies: ["insert_education","insert_indicators"]
+}
+
+INSERT INTO `prueba_dataform_1.indicators_v2`
+(
+    country_code,
+    indicator_code,
+    value,
+    year
+)
+SELECT *
+FROM `prueba_dataform_1.staging_indicators`;
